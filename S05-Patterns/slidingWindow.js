@@ -1,5 +1,7 @@
-/*Prompt: Write a funciton called maxSubArraySum which accepts an array of integers and a number
-called n. The funciton should calculate the maxiumum number of n consecutive elements in the array.*/
+/*
+Prompt: Write a funciton called maxSubArraySum which accepts an array of integers and a number
+called n. The funciton should calculate the maxiumum number of n consecutive elements in the array.
+*/
 const maxSubArraySum = (arr, num) => {
   let tempSum = 0;
   let max = tempSum;

@@ -1,7 +1,8 @@
-/*Prompt: Write a function called SameFrequency, which accepts two arrays. The function should
+/*
+Prompt: Write a function called SameFrequency, which accepts two arrays. The function should
 return true if every value in the array has its corresponding value squared in the second array.
-The frequency of the values must be the same*/
-
+The frequency of the values must be the same
+*/
 const sameFrequencyNaive = (arr1, arr2) => {
   if (arr1.length !== arr2.length) return false;
 
@@ -40,9 +41,11 @@ const sameFrequencyImproved = (arr1, arr2) => {
   return true;
 };
 
-/*Prompt: Givnen two strings, write a funciton to determine if the second string is an anagram
+/*
+Prompt: Givnen two strings, write a funciton to determine if the second string is an anagram
 of the first. An anagram is a word, phrase, or name formed by rearranging the letters of another,
-such as 'cinema' formed from 'iceman'.*/
+such as 'cinema' formed from 'iceman'.
+*/
 const validAnagram = (str1, str2) => {
   if (str1.length !== str2.length) return false;
 
