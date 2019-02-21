@@ -5,21 +5,17 @@ average. There may be more than one pair that matches the average target.
 */
 
 const averagePair = function(arr, target) {
-  if (arr.length < 2) {
-      return false;
-  }
-  let pointerA = arr[0];
-  let pointerB = arr[arr.length - 1];
+  if (arr.length < 2) return false;
+  let lower = 0
+  let higher = arr.length - 1;
 
-  while (pointerB > pointerA) {
-      let avg = (pointerB / pointerA)
-      if (avg === target) 
-        return ([pointerA, pointerB]);
-      
-      else if (avg > target) {
-          pointerA++;
+  while (lower < higher) {
+      let avg = (arr[lower] + arr[higher]) / 2;
+      if (avg === target) return true; 
+      else if (avg < target) {
+          lower += 1;
       } else {
-          pointerB--;
+          higher -= 1;
       }
   }
   return false;
