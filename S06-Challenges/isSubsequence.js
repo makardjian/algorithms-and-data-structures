@@ -17,9 +17,9 @@ const isSubSequence = function (subString, fullString) {
       scout += 1;
       subPointer += 1;
     } else {
-      sout += 1;
+      scout += 1;
     }
-    
+
     if (subPointer === subString.length) return true;
   }
   return false;
