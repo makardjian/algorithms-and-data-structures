@@ -20,3 +20,8 @@ const productOfArray = (arr) => {
   helper();
   return result;
 }
+
+const productOfArrayPure = (arr) => {
+  if (arr.length === 1) return arr[0];
+  return arr[0] * productOfArrayPure(arr.slice(1));
+}
