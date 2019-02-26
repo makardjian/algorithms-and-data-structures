@@ -12,6 +12,7 @@ class Stack {
     this.size = 0;
   }
   
+  // O(1)
   push(value) {
     let node = new Node(value);
     if (!this.first) {
@@ -26,6 +27,7 @@ class Stack {
     // this.last.next will always be null b/c there would be nothing else to pop off.
   }
 
+  // O(1)
   pop() {
     if (!this.size) return null;
     let nodeToRemove = this.first;
