@@ -119,8 +119,22 @@ class SinglyLinkedList {
     this.length -= 1;
     return nodeToRemove;
   }
-
+  
+  // O(n)
   reverse() {
-    console.log('complete me')
+    if (!this.head) return false;
+    if (this.head === this.tail) return this;
+    let current = this.head;
+    this.head = this.tail;
+    this.tail = current;
+    let prev = null;
+    let oldNext = current.next;
+    while (current) {
+      oldNext = current.next;
+      current.next = prev;
+      prev = current;
+      current = oldNext
+    }
+    return this;
   }
 }
