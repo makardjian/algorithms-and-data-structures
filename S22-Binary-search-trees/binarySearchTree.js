@@ -21,7 +21,7 @@ class BST {
     }
     let current = this.root;
     let prev;
-    
+    //itterate over tree to find correct spot for insertion
     while (current !== null) {
       if (current.value === newNode.value) return false;
       if (newNode.value > current.value) {
@@ -32,7 +32,7 @@ class BST {
         current = current.left;
       }
     }
-
+    // determine if newNode should be placed to the left or right of correct point of insertion
     if (newNode.value > prev.value) {
       prev.right = newNode;
     } else {
