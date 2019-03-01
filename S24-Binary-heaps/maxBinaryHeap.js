@@ -28,5 +28,45 @@ class maxBinaryHeap {
     }
     return this.values;
   }
+  
+  extract() {
+    if (!this.values.length) return null;
+    let removed = this.values.shift();
+    if (this.values.length > 1) {
+      this.bubbleDown();
+    }
+    return removed;
+  }
+  
+  bubbleDown() {
+    let newRoot = this.values.pop();
+    this.values.unshift(newRoot);
+
+    // edge case if there are only two values left in the array
+    if (this.values.length === 2) {
+      if (this.values[0] < this.values[1]) {
+        let temp = this.values[0];
+        this.values[0] = this.values[1];
+        this.values[1] = temp;
+      }
+      return;
+    }
+
+    let currentIndex = 0;
+    let leftChildIndex = 1;
+    let rightChildIndex = 2;
+    let tempValue, biggerIndex;
+    while (this.values[currentIndex] < this.values[leftChildIndex] || currentIndex < this.values[rightChildIndex]) {
+      tempValue = this.values[currentIndex];
+      biggerIndex = this.values.indexOf(Math.max(this.values[leftChildIndex], this.values[rightChildIndex]))
+      this.values[currentIndex] = this.values[biggerIndex];
+      this.values[biggerIndex] = tempValue;
+
+      currentIndex = biggerIndex;
+      leftChildIndex = (2 * currentIndex) + 1;
+      rightChildIndex = ( 2 * currentIndex) + 2;
+    }
+    console.log(this.values);
+  }
 }
 
