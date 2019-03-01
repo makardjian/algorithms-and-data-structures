@@ -54,10 +54,15 @@ class maxBinaryHeap {
     let currentIndex = 0;
     let leftChildIndex = 1;
     let rightChildIndex = 2;
-    let tempValue, biggerIndex;
-    while (this.values[currentIndex] < this.values[leftChildIndex] || currentIndex < this.values[rightChildIndex]) {
+    let tempValue, biggerIndex, maxChild;
+    while (this.values[currentIndex] < this.values[leftChildIndex] || this.values[currentIndex] < this.values[rightChildIndex]) {
       tempValue = this.values[currentIndex];
-      biggerIndex = this.values.indexOf(Math.max(this.values[leftChildIndex], this.values[rightChildIndex]))
+      maxChild = Math.max(this.values[leftChildIndex], this.values[rightChildIndex])
+      if (maxChild === this.values[leftChildIndex]) {
+        biggerIndex = leftChildIndex;
+      } else {
+        biggerIndex = rightChildIndex;
+      }
       this.values[currentIndex] = this.values[biggerIndex];
       this.values[biggerIndex] = tempValue;
       currentIndex = biggerIndex;
