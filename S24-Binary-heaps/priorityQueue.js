@@ -19,16 +19,7 @@ class PriorityQue {
       this.values.push(newNode);
       return this.values;
     }
-    // edge case when length is 1;
-    if (this.values.length === 1) {
-      if (this.values[0].priority < newNode.priority) {
-        this.values.push(newNode);
-      } else {
-        this.values.unshift(newNode);
-      }
-      return this.values;
-    }
-    // when length is >= 2;
+    // when length is >= 1;
     this.values.push(newNode);
     return this.bubbleUp();
 }
