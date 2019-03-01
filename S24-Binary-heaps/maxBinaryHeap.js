@@ -5,18 +5,19 @@ class maxBinaryHeap {
   }
 
   insert(value) {
-    //push initial value into the heap
     this.values.push(value);
     if (this.values.length === 1) return this.values;
+    return this.bubbleUp();
+  }
+
+  bubbleUp () {
     let childIndex = this.values.length - 1;
     let parentIndex = Math.floor((childIndex - 1) / 2);
-    let parentValue = this.values[parentIndex]
-    let childValue = this.values[childIndex];
     let tempValue;
 
-    while (childValue > parentValue) {
+    while (this.values[childIndex] > this.values[parentIndex]) {
       // store the parent value in temporary variable
-      tempValue = parentValue;
+      tempValue = this.values[parentIndex];
       // reassign the element at the parent index to equal the child value.
       this.values[parentIndex] = this.values[childIndex];
       // reassign the element at the childIndex to equal the old parent value
@@ -24,8 +25,6 @@ class maxBinaryHeap {
 
       childIndex = parentIndex;
       parentIndex = Math.floor((parentIndex - 1) / 2);
-      parentValue = this.values[parentIndex];
-      childValue = this.values[childIndex]
     }
     return this.values;
   }
