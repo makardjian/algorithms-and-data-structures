@@ -1,5 +1,5 @@
 
-class maxBinaryHeap {
+class MaxBinaryHeap {
   constructor() {
     this.values = [];
   }
@@ -71,4 +71,3 @@ class maxBinaryHeap {
     }
   }
 }
-
