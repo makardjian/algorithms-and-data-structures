@@ -28,20 +28,19 @@ class maxBinaryHeap {
     }
     return this.values;
   }
-  
-  extract() {
+
+  extractMax() {
+    // avoid using shift() so that the array doesn't need to be re-indexed;
     if (!this.values.length) return null;
-    let removed = this.values.shift();
-    if (this.values.length > 1) {
-      this.bubbleDown();
-    }
+    if (this.values.length === 1) return this.values.pop();
+    let removed = this.values[0]
+    let newRoot = this.values.pop();
+    this.values[0] = newRoot;
+    if (this.values.length > 1) this.bubbleDown();
     return removed;
   }
   
   bubbleDown() {
-    let newRoot = this.values.pop();
-    this.values.unshift(newRoot);
-
     // edge case if there are only two values left in the array
     if (this.values.length === 2) {
       if (this.values[0] < this.values[1]) {
@@ -51,7 +50,7 @@ class maxBinaryHeap {
       }
       return;
     }
-
+    // when this.values > 2 run the following code
     let currentIndex = 0;
     let leftChildIndex = 1;
     let rightChildIndex = 2;
@@ -61,12 +60,10 @@ class maxBinaryHeap {
       biggerIndex = this.values.indexOf(Math.max(this.values[leftChildIndex], this.values[rightChildIndex]))
       this.values[currentIndex] = this.values[biggerIndex];
       this.values[biggerIndex] = tempValue;
-
       currentIndex = biggerIndex;
       leftChildIndex = (2 * currentIndex) + 1;
       rightChildIndex = ( 2 * currentIndex) + 2;
     }
-    console.log(this.values);
   }
 }
 
