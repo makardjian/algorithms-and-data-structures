@@ -67,7 +67,7 @@ class MaxBinaryHeap {
       this.values[biggerIndex] = tempValue;
       currentIndex = biggerIndex;
       leftChildIndex = (2 * currentIndex) + 1;
-      rightChildIndex = ( 2 * currentIndex) + 2;
+      rightChildIndex = (2 * currentIndex) + 2;
     }
   }
 }
