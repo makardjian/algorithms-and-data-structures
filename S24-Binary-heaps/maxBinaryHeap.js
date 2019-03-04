@@ -4,6 +4,7 @@ class MaxBinaryHeap {
     this.values = [];
   }
 
+  // O(log2(n))
   insert(value) {
     this.values.push(value);
     if (this.values.length === 1) return this.values;
@@ -29,6 +30,7 @@ class MaxBinaryHeap {
     return this.values;
   }
 
+  // O(log2(n))
   extractMax() {
     // avoid using shift() so that the array doesn't need to be re-indexed;
     if (!this.values.length) return null;
@@ -57,6 +59,7 @@ class MaxBinaryHeap {
     let tempValue, biggerIndex, maxChild;
     while (this.values[currentIndex] < this.values[leftChildIndex] || this.values[currentIndex] < this.values[rightChildIndex]) {
       tempValue = this.values[currentIndex];
+      //avoid using indexOf to increase speed performence
       maxChild = Math.max(this.values[leftChildIndex], this.values[rightChildIndex])
       if (maxChild === this.values[leftChildIndex]) {
         biggerIndex = leftChildIndex;

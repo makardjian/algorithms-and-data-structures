@@ -11,6 +11,7 @@ class PriorityQue {
     this.values = [];
   }
   
+  // O(log2(n))
   enqueue(value, priority) {
     let newNode = new Node(value, priority);
     // edge case when length is 0;
@@ -38,6 +39,7 @@ class PriorityQue {
     return this.values;
   }
 
+  // O(log2(n))
   dequeue(){
     const min = this.values[0];
     const end = this.values.pop();
@@ -80,7 +82,3 @@ class PriorityQue {
     }
   }
 }
-
-
-
-
