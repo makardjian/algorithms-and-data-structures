@@ -147,12 +147,13 @@ class DoublyLinkedList {
     return target;
   }
 
+  // O(n)
   reverse() {
     if (!this.length) return undefined;
     if (this.length === 1) return this;
     let counter = 0;
     let current = this.head;
-    let tempNode
+    let tempNode;
     while (counter < this.length) {
       tempNode = current.next;
       current.next = current.prev;
