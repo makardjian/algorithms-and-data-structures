@@ -1,0 +1,23 @@
+{
+  "name": "algorithms-and-data-structures",
+  "version": "1.0.0",
+  "description": ">My code for Colt Steele's Algorithms and Data Structures [Masterclass] (https://www.udemy.com/js-algorithms-and-data-structures-masterclass/learn/v4/overview) on Udemy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makardjian/algorithms-and-data-structures.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makardjian/algorithms-and-data-structures/issues"
+  },
+  "homepage": "https://github.com/makardjian/algorithms-and-data-structures#readme",
+  "devDependencies": {
+    "lodash": "^4.17.11"
+  }
+}
