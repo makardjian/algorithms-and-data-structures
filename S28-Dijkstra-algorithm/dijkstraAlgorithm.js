@@ -56,23 +56,49 @@ class WeightedGraph {
     //initialize the distances object, queue, and previous object
     for (let i = 0; i < vertices.length; i += 1) {
       let current = vertices[i];
-      if (current !== start) distances[current] = Infinity
-      else distances[current] = 0;
-      nodes.enqueue(current, distances[current]);
+      if (current === start)  {
+        distances[current] = 0;
+        nodes.enqueue(current, 0)
+      } else {
+        distances[current] = Infinity;
+        nodes.enqueue(current, Infinity);
+      }
       previous[current] = null;
     }
     
-    while(nodes.values.length) {
+    // as long as there is something to visit:
+    while (nodes.values.length) {
       smallest = nodes.dequeue().val;
       if (smallest === end) {
         // WE ARE DONE, NEEED TO BUILD PATH TO RETURN
-      } else {
-        //loop through the object edges of the current vertex
-        for (let edge in this.adjacencyList[smallest]) {
-          console.log(edge);
+      }
+
+      if (smallest || distances[smallest] !== Infinity) {
+        for (let index in this.adjacencyList[smallest]) {
+          let nextNode = this.adjacencyList[smallest][index];
+          let nextNeighbor = nextNode.node;
+
+          // calculate new distance to neighboring node:
+          let candidate = distances[smallest] + nextNode.weight;
+          //compare the value of candidate with whatever we have stored as the
+            //shortest distance from start to nextNode
+          if (candidate < distances[nextNeighbor]) {
+            //update new smallest distance to neighbor
+            distances[nextNeighbor] = candidate;
+            //update how we got to the neighbor
+            previous[nextNeighbor] = smallest;
+            nodes.enqueue(nextNeighbor, candidate);
+          }
         }
       }
     }
+    let result = [end];
+    let finish = end;
+    while(finish !== start) {
+      result.unshift(previous[finish]);
+      finish = previous[finish];
+    }
+    return result;
   }
 }
 
@@ -93,7 +119,5 @@ graph.addEdge("D","E", 3);
 graph.addEdge("D","F", 1);
 graph.addEdge("E","F", 1);
 
-
-graph.Dijkstra("A", "E");
-
+graph.shortestPath("A", "E");
 // ["A", "C", "D", "F", "E"]
