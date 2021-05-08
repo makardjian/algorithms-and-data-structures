@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/makardjian/algorithms-and-data-structures#readme",
   "devDependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.21"
   }
 }
